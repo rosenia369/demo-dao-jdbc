@@ -23,7 +23,7 @@ public class Program {
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
-		
+
 		System.out.println("\n===== Test 3: Seller  findAll  ===== ");
 		list = sellerDao.findAll();
 		for (Seller obj : list) {
@@ -33,7 +33,14 @@ public class Program {
 		Seller newSeller = new Seller(null, "Maria Joao", "maria@gmail.com", new Date(), 4000.0, dep);
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New id = " + newSeller.getId());
-		}
+
+		System.out.println("\n===== Test 5: Seller  UPDATE  ===== ");
+		seller = sellerDao.findById(5);
+		seller.setName("Amanda Blue");
+		seller.setEmail("blue@gmail.com");
+
+		sellerDao.update(seller);
+		System.out.println("Update Completed");
 	}
 
-
+}
